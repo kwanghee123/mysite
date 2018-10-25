@@ -1,0 +1,12 @@
+{{item.question_text}}<br>
+{{item.pub_date}}
+<!-- {{ item.choice_set.all }} 단순히 출력 -->
+
+<form action="vote/" method="post">    <!-- vote/ 안해주면 에러 -->
+{% for c in item.choice_set.all %}
+    <input type="radio" name="choice" value="{{ c.id }}">  <!-- 반드시 choice 로 서버로 전송해줘야함 -->
+    {{ c.choice_text }}
+{% endfor %}
+    {% csrf_token%}                     <!-- 보안조치 -->
+    <input type="submit" value="투표">
+</form>

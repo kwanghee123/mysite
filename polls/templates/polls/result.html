@@ -1,0 +1,7 @@
+질문 : {{ question.question_text }}
+
+{{ question.choice_set.all }}
+<p/>
+{% for choice in question.choice_set.all %}
+    {{ choice.choice_text }} --> {{ choice.votes }}<p/>
+{% endfor %}

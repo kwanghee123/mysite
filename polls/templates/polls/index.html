@@ -1,0 +1,9 @@
+<ul>
+    {% for q in question %}
+        <li>
+            <a href="{% url 'detail55' q.id %}">
+                <!-- 이녀석의 id값(숫자) <a href="{{ q.id }}/detail">. 상대경로 === 현재경로 + 엽력된 경로 -->
+                {{q.question_text}}</li>
+    {% endfor %}
+</ul>
+
